@@ -34,7 +34,7 @@ module.exports = (req, callback) => {
       req.text = '';
       callback(err);
     });
-    
+
   } else {
     // If we make it here then it was neither a 'PUT' or 'POST' request
     req.text = '';

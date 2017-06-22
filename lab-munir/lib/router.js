@@ -31,7 +31,7 @@ router.delete = (pathname, callback) => {
 router.route = (req, res) => {
 
   // Parse the request
-  request_parse(res, (err) => {
+  request_parse(req, (err) => {
     if (err) {
       res.writeHead(400);
       res.end();
@@ -39,7 +39,7 @@ router.route = (req, res) => {
     }
 
     // Check if there is a callback
-    let route = router[req.method][req.url.pathname];
+    let route = routes[req.method][req.url.pathname];
     // If there is a callback for the request; invoke it
     if (route) {
       route(req, res);
